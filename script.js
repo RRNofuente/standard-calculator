@@ -5,7 +5,7 @@ const buttons = document.querySelectorAll("button");
 
 let operationContent;
 let number = "0";
-const operands = [0,1,2,3,4,5,6,7,8,9];
+const operands = ['0','1','2','3','4','5','6','7','8','9'];
 
 currentNumber.textContent = number;
 
@@ -31,7 +31,7 @@ function plusMinus(number){
 
 buttons.forEach(button => {
     button.addEventListener("click", ()=>{
-        if (operands.includes(+button.id)){
+        if (operands.includes(button.id)){
             if (number.at(0) === "0" && number.at(1) !== "."){
                 number = "";
             }
