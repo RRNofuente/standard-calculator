@@ -34,7 +34,7 @@ operatorContainer.addEventListener("click", (event) => {
         number += target.id;
     }
 
-    if (target.id == "dot" && !number.includes(".")){
+    if (target.id == "dot" && !number.toString().includes(".")){
         number += ".";
     }
 
