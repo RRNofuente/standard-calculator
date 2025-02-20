@@ -50,6 +50,7 @@ operatorContainer.addEventListener("click", (event) => {
             resetNumber = false;
             operation.textContent = "";
             operator = "";
+            operationNumber = "";
             enableOperators();
         }
         if (number[0] === "0" && number[1] !== "."){
@@ -81,6 +82,7 @@ operatorContainer.addEventListener("click", (event) => {
                 resetNumber = false;
                 operation.textContent = "";
                 operator = "";
+                operationNumber = "";
                 enableOperators();
             }
             if (number !== "0"){
@@ -97,6 +99,7 @@ operatorContainer.addEventListener("click", (event) => {
             resetNumber = false;
             operation.textContent = "";
             operator = "";
+            operationNumber = "";
             enableOperators();
             break;
         case "plus":
@@ -124,11 +127,15 @@ operatorContainer.addEventListener("click", (event) => {
             operation.textContent = operationNumber.toString().concat("/");
             break;
         case "percentage":
-            result = +operationNumber / +number * 100;
-            operation.textContent = operationNumber.toString().concat(operator, result, "=");
-            operationNumber = number;
-            number = result;
-            resetNumber = true;
+            if (!operationNumber){
+                number = "0";
+            } else {
+                result = +operationNumber / +number * 100;
+                operation.textContent = operationNumber.toString().concat(operator, result, "=");
+                operationNumber = number;
+                number = result;
+                resetNumber = true;
+            }
             break;
         case "equal":
             switch (operator){
@@ -165,6 +172,7 @@ operatorContainer.addEventListener("click", (event) => {
                         resetNumber = false;
                         operation.textContent = "";
                         operator = "";
+                        operationNumber = "";
                         enableOperators();
                     } else {
                         operation.textContent = operationNumber.toString().concat("/", number, "=");
