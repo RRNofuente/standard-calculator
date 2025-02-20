@@ -1,7 +1,6 @@
 const operation = document.querySelector("#operation");
 const currentNumber = document.querySelector("#currentNumber");
 const operatorContainer = document.querySelector("#operatorContainer");
-const buttons = document.querySelectorAll("button");
 
 let operationContent;
 let number = "0";
@@ -29,17 +28,17 @@ function plusMinus(number){
     return number * (-1);
 }
 
-buttons.forEach(button => {
-    button.addEventListener("click", ()=>{
-        if (operands.includes(button.id)){
-            if (number.at(0) === "0" && number.at(1) !== "."){
-                number = "";
-            }
-            number += button.id;
+operatorContainer.addEventListener("click", (event) => {
+    let target = event.target;
+    if (operands.includes(target.id)){
+        if (number.at(0) === "0" && number.at(1) !== "."){
+            number = "";
         }
-        if (button.id == "dot" && !number.includes(".")){
-            number += ".";
-        }
-        currentNumber.textContent = number;
-    });
+        number += target.id;
+    }
+    if (target.id == "dot" && !number.includes(".")){
+        number += ".";
+    }
+    currentNumber.textContent = number;
 });
+
