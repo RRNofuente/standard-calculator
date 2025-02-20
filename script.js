@@ -130,9 +130,9 @@ operatorContainer.addEventListener("click", (event) => {
             if (!operationNumber){
                 number = "0";
             } else {
-                result = +operationNumber / +number * 100;
-                operation.textContent = operationNumber.toString().concat(operator, result, "=");
-                operationNumber = number;
+                number /= 100;
+                result = number;
+                operation.textContent = operationNumber.toString().concat(operator, number, "=");
                 number = result;
                 resetNumber = true;
             }
