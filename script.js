@@ -53,6 +53,9 @@ operatorContainer.addEventListener("click", (event) => {
                 }
             }
             break;
+        case "clear":
+            number = "0";
+            break;
     }
     currentNumber.textContent = number;
 });
