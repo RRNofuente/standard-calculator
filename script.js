@@ -44,6 +44,15 @@ operatorContainer.addEventListener("click", (event) => {
                 number = number * -1;
             }
             break;
+        case "backspace":
+            if (number !== "0"){
+                if (number < 10 && number > -10) {
+                    number = "0";
+                } else {
+                    number = number.toString().slice(0, -1);
+                }
+            }
+            break;
     }
     currentNumber.textContent = number;
 });
